@@ -10,13 +10,6 @@ class Basket {
             const item = inventory.find(inventory => inventory.sku === sku)
             this.basket.push(item)
         }
-
-
-        // for (let i = 0; i < inventory.length; i++) {
-        //     if (inventory[i].sku === sku && this.basket.length < this.basketSize) {
-        //         this.basket.push(inventory[i]);
-        //     }
-        // }
         return 'You cannot add more than 5 items to your basket!'
     };
 
@@ -30,12 +23,9 @@ class Basket {
     }
 
     getItemPrice(product) {
-        for (let i = 0; i < inventory.length; i++) {
-            if (inventory[i].sku === product) {
-                return `The price of the item is £${inventory[i].price}`
-            }
-        }
-        return 'The product is not available'
+
+        const item = inventory.find(inventory => inventory.sku === product)
+        return `The price of the item is £${item.price}`
     }
 
     showBasket() {
